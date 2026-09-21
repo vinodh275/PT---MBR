@@ -1,0 +1,36 @@
+name: Update MBR data
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: "15 3 * * *"
+
+permissions:
+  contents: write
+
+jobs:
+  refresh:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Pull and validate Metabase metrics
+        env:
+          METABASE_URL: ${{ secrets.METABASE_URL }}
+          METABASE_API_KEY: ${{ secrets.METABASE_API_KEY }}
+          METABASE_USERNAME: ${{ secrets.METABASE_USERNAME }}
+          METABASE_PASSWORD: ${{ secrets.METABASE_PASSWORD }}
+        run: python scripts/fetch_metabase.py
+
+      - name: Commit published data
+        run: |
+          git config user.name "mbr-data-bot"
+          git config user.email "actions@users.noreply.github.com"
+          git add data/mbr.json
+          git diff --cached --quiet || git commit -m "Update MBR data"
+          git push
