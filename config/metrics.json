@@ -1,0 +1,15 @@
+{
+  "ownerships": ["1P Elite", "2P Elite", "1P Neo", "2P Neo"],
+  "metrics": {
+    "revenue": {"label": "Rev (in L)", "card_id": 76691, "value_column": "Sum of Rev in Lak", "format": "lakhs"},
+    "aov": {"label": "AOV (in 000)", "card_id": 85144, "value_column": "AOV", "format": "number"},
+    "ppc": {"label": "PPC", "card_id": null, "value_column": "PPC", "format": "integer"},
+    "m0": {"label": "M0 Onboarding", "card_id": null, "value_column": "M0 Onboarding", "format": "percent"},
+    "d30": {"label": "D30 Conv%", "card_id": null, "value_column": "D30 Conv%", "format": "percent"},
+    "utilisation": {"label": "Utilisation%", "card_id": null, "value_column": "Utilisation%", "format": "percent"},
+    "d60": {"label": "D60 Retention%", "card_id": null, "value_column": "D60 Retention%", "format": "percent"},
+    "packUtilisation": {"label": "Pack utilisation%", "card_id": null, "value_column": "Pack utilisation%", "format": "percent"},
+    "breakage": {"label": "Breakage", "card_id": null, "value_column": "Breakage", "format": "percent"},
+    "extension": {"label": "Extension", "card_id": null, "value_column": "Extension", "format": "percent"}
+  }
+}
